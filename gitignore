@@ -1,0 +1,55 @@
+
+---
+
+### .gitignore
+
+```gitignore
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos temporários
+*.tmp
+
+# Ignorar arquivos de banco de dados
+*.sql
+
+# Ignorar arquivos de backup
+*.bak
+
+# Ignorar arquivos de configuração local
+config/
+
+# Ignorar arquivos de IDEs
+.idea/
+.vscode/
+.DS_Store
+
+
+Objetivo
+O objetivo deste projeto é desenvolver um sistema de gerenciamento de inventário para um armazém. O sistema deve permitir a administração de categorias de produtos, fornecedores e produtos em estoque, facilitando a inserção, atualização, exclusão e consulta dos dados relacionados a esses componentes.
+
+Requisitos
+Criação do Banco de Dados:
+
+Crie um banco de dados chamado InventarioArmazem.
+Tabelas:
+
+Categorias: Armazena as categorias dos produtos com os campos CategoriaID e Nome.
+Fornecedores: Armazena informações dos fornecedores com os campos FornecedorID, Nome, Contato, e Endereco.
+Produtos: Armazena detalhes dos produtos com os campos ProdutoID, Descricao, Preco, QuantidadeEmEstoque, e CategoriaID, que deve ser uma chave estrangeira referenciando Categorias.
+Operações:
+
+Inserção de Dados: Insira dados de exemplo para categorias, fornecedores e produtos.
+Consultas: Realize consultas para listar todos os produtos, filtrar produtos por categoria, e identificar fornecedores que fornecem produtos acima de um certo preço.
+Atualizações: Permita a atualização dos preços dos produtos, a modificação das descrições das categorias e a alteração dos endereços dos fornecedores.
+Exclusão: Permita a exclusão de produtos, categorias e fornecedores, garantindo que as referências e integridade dos dados sejam mantidas.
+Consultas SQL Exemplares:
+
+Deve ser possível listar todos os produtos em estoque, filtrar produtos por categoria e encontrar fornecedores que fornecem produtos com preço superior a um determinado valor.
+Entregáveis
+Script SQL completo para criação e manipulação do banco de dados.
+Documentação para instruções de instalação e uso do banco de dados.
+Exemplos de consultas e operações básicas no banco de dados.
+Avaliação
+A avaliação será baseada na clareza e eficiência da estrutura do banco de dados, na adequação das consultas SQL e na capacidade do sistema de atender aos requisitos estabelecidos.
+
