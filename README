@@ -1,0 +1,66 @@
+# Sistema de Gerenciamento de Inventário
+
+## Descrição
+
+Este projeto consiste em um sistema de gerenciamento de inventário para um armazém, permitindo a administração de categorias de produtos, fornecedores e os produtos em estoque. O sistema é implementado com um banco de dados relacional, utilizando SQL para criação, manipulação e consulta dos dados.
+
+## Estrutura do Banco de Dados
+
+O banco de dados `InventarioArmazem` é composto por três tabelas principais:
+
+1. **Categorias**
+   - `CategoriaID` (INT, PK): Identificador único da categoria.
+   - `Nome` (VARCHAR(50)): Nome da categoria.
+
+2. **Fornecedores**
+   - `FornecedorID` (INT, PK): Identificador único do fornecedor.
+   - `Nome` (VARCHAR(100)): Nome do fornecedor.
+   - `Contato` (VARCHAR(50)): Informação de contato do fornecedor.
+   - `Endereco` (TEXT): Endereço do fornecedor.
+
+3. **Produtos**
+   - `ProdutoID` (INT, PK): Identificador único do produto.
+   - `Descricao` (TEXT): Descrição do produto.
+   - `Preco` (DECIMAL(10, 2)): Preço do produto.
+   - `QuantidadeEmEstoque` (INT): Quantidade disponível em estoque.
+   - `CategoriaID` (INT, FK): Identificador da categoria à qual o produto pertence. (Relacionamento com `Categorias`).
+
+## Instruções de Uso
+
+### 1. Criação do Banco de Dados
+
+Execute o seguinte script SQL para criar o banco de dados e as tabelas necessárias:
+
+```sql
+-- 1. Criar o Banco de Dados
+DROP DATABASE IF EXISTS InventarioArmazem;
+CREATE DATABASE InventarioArmazem;
+
+-- Usar o banco de dados criado
+USE InventarioArmazem;
+
+-- 2. Criar as Tabelas
+
+-- Tabela de Categorias
+CREATE TABLE Categorias (
+    CategoriaID INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(50) NOT NULL
+);
+
+-- Tabela de Fornecedores
+CREATE TABLE Fornecedores (
+    FornecedorID INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(100) NOT NULL,
+    Contato VARCHAR(50),
+    Endereco TEXT
+);
+
+-- Tabela de Produtos
+CREATE TABLE Produtos (
+    ProdutoID INT PRIMARY KEY AUTO_INCREMENT,
+    Descricao TEXT NOT NULL,
+    Preco DECIMAL(10, 2) NOT NULL,
+    QuantidadeEmEstoque INT NOT NULL,
+    CategoriaID INT,
+    FOREIGN KEY (CategoriaID) REFERENCES Categorias(CategoriaID) ON DELETE SET NULL
+);
